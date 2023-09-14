@@ -1,4 +1,4 @@
-import { Box, HStack, Link, Spacer, Text, VStack } from '@chakra-ui/react';
+import { HStack, Link, Spacer, Text, VStack } from '@chakra-ui/react';
 import { Link as RouteLink } from 'react-router-dom';
 
 const Footer = () => (

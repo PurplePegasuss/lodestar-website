@@ -1,9 +1,11 @@
-import { Link, LinkProps, forwardRef } from '@chakra-ui/react';
-import { Link as RouteLink, type LinkProps as RouteLinkProps } from 'react-router-dom';
+import { chakra } from '@chakra-ui/react';
+import RouteLink from '../routelink';
 
-const NavLink = forwardRef<LinkProps & RouteLinkProps, 'a'>((props, ref) => (
-  // eslint-disable-next-line jsx-a11y/anchor-is-valid, react/jsx-props-no-spreading
-  <Link fontFamily="heading" textTransform="uppercase" ref={ref} as={RouteLink} {...props} />
-));
+const NavLink = chakra(RouteLink, {
+  baseStyle: {
+    fontFamily: 'heading',
+    textTransform: 'uppercase',
+  },
+});
 
 export default NavLink;

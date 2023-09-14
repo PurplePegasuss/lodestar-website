@@ -1,6 +1,10 @@
-import { Center, Image } from '@chakra-ui/react';
-import { Navigate, createHashRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 import Layout from './components/layout/layout';
+import Home from './pages/home/home';
+import NotFound from './pages/not_found';
+import Projects from './pages/projects';
+import About from './pages/about/about';
+import Contact from './pages/contact';
 
 const routes = createHashRouter([
   {
@@ -9,15 +13,23 @@ const routes = createHashRouter([
     children: [
       {
         index: true,
-        element: (
-          <Center height="100vh">
-            <Image src="/logo.svg" width="50%" />
-          </Center>
-        ),
+        element: <Home />,
+      },
+      {
+        path: 'projects',
+        element: <Projects />,
+      },
+      {
+        path: 'about',
+        element: <About />,
+      },
+      {
+        path: 'contact',
+        element: <Contact />,
       },
       {
         path: '*',
-        element: <Navigate to="/" />,
+        element: <NotFound />,
       },
     ],
   },
