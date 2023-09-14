@@ -1,17 +1,16 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { HashRouter } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
-import App from './App';
 import theme from './theme';
+import routes from './routes';
+import './i18n';
 
 const root = createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <StrictMode>
     <ChakraProvider theme={theme}>
-      <HashRouter>
-        <App />
-      </HashRouter>
+      <RouterProvider router={routes} />
     </ChakraProvider>
   </StrictMode>,
 );
