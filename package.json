@@ -1,0 +1,52 @@
+{
+  "name": "lodestar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.ts",
+  "scripts": {
+    "dev": "vite",
+    "lint": "tsc --noEmit && eslint . --report-unused-disable-directives --max-warnings 0 && prettier --check .",
+    "format": "eslint --fix . && prettier -w .",
+    "build": "npx vite build",
+    "preview": "vite preview"
+  },
+  "author": "https://github.com/ntdesmond",
+  "license": "WTFPL",
+  "devDependencies": {
+    "@babel/preset-env": "^7.18.6",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "@vitejs/plugin-react": "^4.0.1",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-react-refresh": "^0.4.1",
+    "prettier": "^3.0.0",
+    "typescript": "^5.1.6",
+    "vite": "^4.3.9",
+    "vite-plugin-eslint2": "^3.3.0",
+    "wait-on": "^7.0.1",
+    "webpack-dev-server": "^4.9.3"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^2.7.1",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/oswald": "^5.0.4",
+    "@fontsource/source-code-pro": "^5.0.8",
+    "@fontsource/source-sans-pro": "^5.0.8",
+    "framer-motion": "^10.12.18",
+    "i18next": "^23.2.11",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^13.0.2",
+    "react-icons": "^4.10.1",
+    "react-router-dom": "^6.3.0"
+  }
+}
