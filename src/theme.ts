@@ -1,4 +1,4 @@
-import { extendTheme, type ThemeConfig, type Colors } from '@chakra-ui/react';
+import { extendTheme, type ThemeConfig, type Colors, StyleFunctionProps } from '@chakra-ui/react';
 import '@fontsource/source-sans-pro/400-italic.css';
 import '@fontsource/source-sans-pro/400.css';
 import '@fontsource/source-sans-pro/700.css';
@@ -50,10 +50,15 @@ const fonts = {
   mono: "'Source Code Pro', 'Courier New', Courier, monospace",
 };
 
+const styles = {
+  global: (_props: StyleFunctionProps) => ({ body: { bg: 'gray.bg' } }),
+};
+
 const theme = extendTheme({
   config,
   colors,
   fonts,
+  styles,
 });
 
 export default theme;

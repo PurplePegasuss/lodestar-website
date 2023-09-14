@@ -1,9 +1,11 @@
 import { Center, Image } from '@chakra-ui/react';
 import { Navigate, createHashRouter } from 'react-router-dom';
+import Layout from './components/layout/layout';
 
 const routes = createHashRouter([
   {
     path: '/',
+    element: <Layout />,
     children: [
       {
         index: true,
