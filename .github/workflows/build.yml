@@ -1,0 +1,42 @@
+name: Build bundle
+
+# Build is done for all pushes except the master branch.
+# In master, this workflow is called through deploy.yml
+on:
+  push:
+    branches-ignore: [master]
+  workflow_call:
+
+# Allow one concurrent build for each branch
+concurrency:
+  group: build-pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # Read-only permissions for GITHUB_TOKEN
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the app
+        env:
+          VITE_GITHUB_REPO: ${{ github.repository }}
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: "build/"

@@ -1,0 +1,40 @@
+name: Build and deploy to Pages
+on:
+  push:
+    branches: [master]
+
+# Allow one concurrent deployment
+concurrency:
+  group: "deploy-pages"
+  cancel-in-progress: true
+
+jobs:
+  setup-pages:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Github Pages
+        uses: actions/configure-pages@v3
+
+  # Reuse build.yml workflow
+  build:
+    uses: ./.github/workflows/build.yml
+
+  deploy:
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
