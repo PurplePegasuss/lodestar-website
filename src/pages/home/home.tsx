@@ -1,5 +1,9 @@
-import { Center, HStack, Image, Text } from '@chakra-ui/react';
+import { Button, Center, HStack, Image, Text } from '@chakra-ui/react';
+import { MdArrowForward } from 'react-icons/md';
 import Project from './project';
+import NamedSection from '../../components/layout/named_section';
+import TeamMemberPhoto from './team_member_photo';
+import RouteLink from '../../components/routelink';
 
 const Home = () => (
   <>
@@ -30,6 +34,34 @@ const Home = () => (
         url="/projects/2"
       />
     </HStack>
+    <NamedSection name="Команда">
+      <HStack spacing="10">
+        <TeamMemberPhoto photo_url="/logo.svg" />
+        <TeamMemberPhoto photo_url="/logo.svg" />
+        <TeamMemberPhoto photo_url="/logo.svg" />
+        <TeamMemberPhoto photo_url="/logo.svg" />
+        <TeamMemberPhoto photo_url="/logo.svg" />
+      </HStack>
+      <Center margin="10">
+        <Button
+          as={RouteLink}
+          to="/about"
+          alignSelf="end"
+          rightIcon={<MdArrowForward />}
+          colorScheme="red"
+        >
+          Подробнее
+        </Button>
+      </Center>
+    </NamedSection>
+    <NamedSection name="Партнеры">
+      <HStack spacing="10">
+        <TeamMemberPhoto photo_url="/logo.svg" />
+        <TeamMemberPhoto photo_url="/logo.svg" />
+        <TeamMemberPhoto photo_url="/logo.svg" />
+        <TeamMemberPhoto photo_url="/logo.svg" />
+      </HStack>
+    </NamedSection>
   </>
 );
 

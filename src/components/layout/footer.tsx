@@ -13,16 +13,16 @@ const Footer = () => (
       <Text>lodestar@please-replace-this-domain.com</Text>
     </VStack>
     <VStack alignItems="start">
-      <Link as={RouteLink} to="#projects">
+      <Link as={RouteLink} to="/">
         Главная
       </Link>
-      <Link as={RouteLink} to="#projects">
+      <Link as={RouteLink} to="/projects">
         Проекты
       </Link>
       <Link as={RouteLink} to="/about">
         О компании
       </Link>
-      <Link as={RouteLink} to="/about#contact">
+      <Link as={RouteLink} to="/contact">
         Связаться с нами
       </Link>
     </VStack>
