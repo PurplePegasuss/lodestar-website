@@ -1,6 +1,6 @@
 import { Text, VStack } from '@chakra-ui/react';
 import NamedSection from '../../components/layout/named_section';
-import TeamMember from './team_member';
+import TeamMember from './components/team_member';
 
 const About = () => (
   <>

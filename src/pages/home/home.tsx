@@ -1,9 +1,10 @@
 import { Button, Center, HStack, Image, Text } from '@chakra-ui/react';
 import { MdArrowForward } from 'react-icons/md';
-import Project from './project';
+import ProjectCard from '../../components/project_card';
 import NamedSection from '../../components/layout/named_section';
-import TeamMemberPhoto from './team_member_photo';
+import TeamMemberPhoto from './components/team_member_photo';
 import RouteLink from '../../components/routelink';
+import projects from '../../data/projects';
 
 const Home = () => (
   <>
@@ -19,20 +20,9 @@ const Home = () => (
       <Text>Тут видос должен быть</Text>
     </Center>
     <HStack spacing="0">
-      <Project
-        name="Название проекта"
-        description={`Описание продукта типа он вот такой крутой и вообще и вот в общем-то что еще
-                      сказать-то ну вот оно умеет работать а что еще надо`}
-        photo_url="/logo.svg"
-        url="/projects/1"
-      />
-      <Project
-        name="Project 2"
-        description={`Описание продукта типа он вот такой крутой и вообще и вот в общем-то что еще
-                      сказать-то ну вот оно умеет работать а что еще надо`}
-        photo_url="/logo.svg"
-        url="/projects/2"
-      />
+      {projects.map((project) => (
+        <ProjectCard key={project.slug} project={project} />
+      ))}
     </HStack>
     <NamedSection name="Команда">
       <HStack spacing="10">
