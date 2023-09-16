@@ -1,11 +1,12 @@
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { Center, Image, ListItem, Text, UnorderedList } from '@chakra-ui/react';
+import { ListItem, Text, UnorderedList } from '@chakra-ui/react';
 import NamedSection from '../../components/layout/named_section';
 import projects from '../../data/projects';
 import NotFound from '../not_found';
 import WhyUsSection from './components/why_us_section';
 import OrderSection from './components/order_section';
+import Carousel from '../../components/carousel/carousel';
 
 const Project = () => {
   const { slug } = useParams();
@@ -16,10 +17,7 @@ const Project = () => {
   }
   return (
     <>
-      <Center flexDirection="column" width="100%">
-        <Image src={project.photos[0]} width="100%" />
-        <Text>Тут будет карусель</Text>
-      </Center>
+      <Carousel photos={project.photos} height="96" />
       <NamedSection name={project.name}>
         <Text>{project.long_description}</Text>
       </NamedSection>
