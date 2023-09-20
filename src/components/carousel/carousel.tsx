@@ -21,11 +21,11 @@ const Carousel = forwardRef<Omit<BoxProps, 'children'> & { photos: string[] }, '
 
     useEffect(() => {
       const value = `-${(state.step + 1) * 100}%`;
-      if (!state.crossedBoundary) {
+      if (state.crossedBoundary === null) {
         animate(animationScope.current, { x: value }, transition);
         return;
       }
-      if (state.step === 0) {
+      if (state.crossedBoundary === 'right') {
         animate(animationScope.current, { x: lastItemOffset }, transition).then(() =>
           animate(animationScope.current, { x: '-100%' }, { ...transition, duration: 0 }),
         );
