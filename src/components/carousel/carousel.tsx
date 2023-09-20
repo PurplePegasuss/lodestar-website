@@ -1,8 +1,7 @@
-import { useCallback, useEffect, useRef } from 'react';
-import { Box, BoxProps, HStack, IconButton, forwardRef } from '@chakra-ui/react';
+import { useEffect, useMemo } from 'react';
+import { Box, BoxProps, Center, HStack, IconButton, Image, forwardRef } from '@chakra-ui/react';
 import { MdArrowBack, MdArrowForward } from 'react-icons/md';
 import { Transition, useAnimate } from 'framer-motion';
-import CarouselItem from './carousel_item';
 import useCarouselState from './use_carousel_state';
 
 const transition: Transition = {
@@ -11,45 +10,31 @@ const transition: Transition = {
   ease: 'anticipate',
 };
 
+// TODO: check for 0 photos and handle window resize event
+
 const Carousel = forwardRef<Omit<BoxProps, 'children'> & { photos: string[] }, 'div'>(
   ({ photos, ...props }, ref) => {
-    const offsets = useRef<number[]>([]);
     const [animationScope, animate] = useAnimate();
-    const {
-      state: { step, crossedBoundary },
-      goBack,
-      goForward,
-    } = useCarouselState({ count: photos.length });
+    const { state, goBack, goForward } = useCarouselState({ count: photos.length });
 
-    const pushOffset = useCallback((offset: number) => offsets.current.push(-offset), []);
+    const lastItemOffset = useMemo(() => `-${(photos.length + 1) * 100}%`, [photos.length]);
 
     useEffect(() => {
-      const value = offsets.current.at(step + 1);
-      if (value === undefined) {
-        return;
-      }
-      if (!crossedBoundary) {
+      const value = `-${(state.step + 1) * 100}%`;
+      if (!state.crossedBoundary) {
         animate(animationScope.current, { x: value }, transition);
         return;
       }
-      if (step === 0) {
-        animate(animationScope.current, { x: offsets.current.at(-1) }, transition).then(() =>
-          animate(
-            animationScope.current,
-            { x: offsets.current.at(1) },
-            { ...transition, duration: 0 },
-          ),
+      if (state.step === 0) {
+        animate(animationScope.current, { x: lastItemOffset }, transition).then(() =>
+          animate(animationScope.current, { x: '-100%' }, { ...transition, duration: 0 }),
         );
         return;
       }
-      animate(animationScope.current, { x: offsets.current.at(0) }, transition).then(() =>
-        animate(
-          animationScope.current,
-          { x: offsets.current.at(-2) },
-          { ...transition, duration: 0 },
-        ),
+      animate(animationScope.current, { x: '0%' }, transition).then(() =>
+        animate(animationScope.current, { x: value }, { ...transition, duration: 0 }),
       );
-    }, [animate, animationScope, crossedBoundary, photos.length, step]);
+    }, [animate, animationScope, state, lastItemOffset]);
 
     return (
       // eslint-disable-next-line react/jsx-props-no-spreading
@@ -75,20 +60,18 @@ const Carousel = forwardRef<Omit<BoxProps, 'children'> & { photos: string[] }, '
           />
         </HStack>
         <HStack spacing={0} ref={animationScope} height="100%">
-          <CarouselItem photo={photos.at(-1) as string} onMount={pushOffset} />
-          {photos.map((photo, i) => (
-            <CarouselItem
-              photo={photo}
-              onMount={pushOffset}
-              // eslint-disable-next-line react/no-array-index-key
-              key={i}
-            />
+          {[photos.at(-1), ...photos, photos.at(0)].map((photo, i) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <Center flex="1 0 100%" height="100%" key={i}>
+              <Image src={photo} height="100%" draggable="false" />
+            </Center>
           ))}
-          <CarouselItem photo={photos.at(0) as string} onMount={pushOffset} />
         </HStack>
       </Box>
     );
   },
 );
+
+Carousel.displayName = 'Carousel';
 
 export default Carousel;
