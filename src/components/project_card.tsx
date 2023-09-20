@@ -1,4 +1,5 @@
 import {
+  Center,
   Heading,
   Icon,
   Image,
@@ -26,7 +27,13 @@ const ProjectCard = ({
   const { isOpen, onClose, onOpen } = useDisclosure();
   return (
     <LinkBox position="relative" onMouseEnter={onOpen} onMouseLeave={onClose} width="100%">
-      <Image src={photo_url} width="100%" />
+      {photo_url ? (
+        <Image src={photo_url} width="100%" />
+      ) : (
+        <Center minHeight="96">
+          <Text>Нет фотографий</Text>
+        </Center>
+      )}
       <VStack
         position="absolute"
         inset="0"

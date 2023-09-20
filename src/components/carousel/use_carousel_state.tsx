@@ -23,7 +23,7 @@ const useCarouselState = ({ count, initialStep = 0 }: { count: number; initialSt
       setState({ step: newStep, crossedBoundary: null });
       return;
     }
-    setState({ step: count - 1, crossedBoundary: 'left' });
+    setState({ step: Math.max(count - 1, 0), crossedBoundary: 'left' });
   }, [count, state.step]);
 
   return { state, goBack, goForward };
