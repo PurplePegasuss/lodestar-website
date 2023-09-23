@@ -1,4 +1,5 @@
 import { BoxProps, Center, HStack, Image, Text, forwardRef } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 import { memo } from 'react';
 
 /* eslint-disable react/jsx-props-no-spreading */
@@ -13,7 +14,15 @@ const CarouselSlider = memo(
         );
       }
       return (
-        <HStack spacing={0} ref={ref} height="100%" {...props}>
+        <HStack
+          as={motion.div}
+          animate={{ x: '-100%' }}
+          initial={false}
+          spacing={0}
+          ref={ref}
+          height="100%"
+          {...props}
+        >
           {[photos.at(-1), ...photos, photos.at(0)].map((photo, i) => (
             // eslint-disable-next-line react/no-array-index-key
             <Center flex="1 0 100%" height="100%" key={i}>
