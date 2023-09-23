@@ -16,7 +16,7 @@ const Home = () => (
       borderColor="logo.red"
       borderStyle="solid"
     >
-      <Image src="/logo.svg" width="30%" />
+      <Image src="/img/logo.svg" width="30%" />
       <Text>Тут видос должен быть</Text>
     </Center>
     <HStack spacing="0">
@@ -26,11 +26,11 @@ const Home = () => (
     </HStack>
     <NamedSection name="Команда">
       <HStack spacing="10">
-        <TeamMemberPhoto photo_url="/logo.svg" />
-        <TeamMemberPhoto photo_url="/logo.svg" />
-        <TeamMemberPhoto photo_url="/logo.svg" />
-        <TeamMemberPhoto photo_url="/logo.svg" />
-        <TeamMemberPhoto photo_url="/logo.svg" />
+        <TeamMemberPhoto photo_url="/img/logo.svg" />
+        <TeamMemberPhoto photo_url="/img/logo.svg" />
+        <TeamMemberPhoto photo_url="/img/logo.svg" />
+        <TeamMemberPhoto photo_url="/img/logo.svg" />
+        <TeamMemberPhoto photo_url="/img/logo.svg" />
       </HStack>
       <Center margin="10">
         <Button
@@ -46,10 +46,10 @@ const Home = () => (
     </NamedSection>
     <NamedSection name="Партнеры">
       <HStack spacing="10">
-        <TeamMemberPhoto photo_url="/logo.svg" />
-        <TeamMemberPhoto photo_url="/logo.svg" />
-        <TeamMemberPhoto photo_url="/logo.svg" />
-        <TeamMemberPhoto photo_url="/logo.svg" />
+        <TeamMemberPhoto photo_url="/img/logo.svg" />
+        <TeamMemberPhoto photo_url="/img/logo.svg" />
+        <TeamMemberPhoto photo_url="/img/logo.svg" />
+        <TeamMemberPhoto photo_url="/img/logo.svg" />
       </HStack>
     </NamedSection>
   </>

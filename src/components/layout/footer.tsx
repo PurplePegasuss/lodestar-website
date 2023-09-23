@@ -23,7 +23,7 @@ const Footer = () => (
         О компании
       </Link>
       <Link as={RouteLink} to="/contact">
-        Связаться с нами
+        Контакты
       </Link>
     </VStack>
   </HStack>
