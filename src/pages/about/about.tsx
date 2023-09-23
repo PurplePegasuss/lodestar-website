@@ -23,14 +23,14 @@ const About = () => (
           position="Оператор колл-центра"
           description={`Возможно она и существует, но она работает из дома, поэтому мы не можем быть уверены, 
                       что она не написала нейросеть которая работает вместо нее.`}
-          photo_url="/img/logo.svg"
+          photo_url="/media/logo.svg"
         />
         <TeamMember
           name="Точно-не Билл-Гейтс"
           position="Оператор-монтажер"
           description={`В 20 лет спиратил Sony Vegas и открыл канал на YouTube, на деньги с рекламы купил себе 
                       профессиональную камеру и теперь делает нам контент`}
-          photo_url="/img/logo.svg"
+          photo_url="/media/logo.svg"
         />
       </VStack>
     </NamedSection>
