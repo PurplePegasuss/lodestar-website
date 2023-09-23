@@ -1,11 +1,9 @@
-import { Card, CardBody } from '@chakra-ui/react';
+import { DefaultEmailLink } from '../../../components/contacts/email';
 import NamedSection from '../../../components/layout/named_section';
 
-const OrderSection = ({ project_slug }: { project_slug: string }) => (
+const OrderSection = ({ project_slug: _ }: { project_slug: string }) => (
   <NamedSection name="Заказать">
-    <Card>
-      <CardBody>Тут должна быть форма заказа ({project_slug})</CardBody>
-    </Card>
+    Для заказа напишите нам на почту <DefaultEmailLink />.
   </NamedSection>
 );
 

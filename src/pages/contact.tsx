@@ -1,5 +1,7 @@
 import { Box, HStack, Heading, Image, Text, VStack } from '@chakra-ui/react';
 import NamedSection from '../components/layout/named_section';
+import { DefaultEmailLink } from '../components/contacts/email';
+import { DefaultPhoneLink } from '../components/contacts/phone';
 
 const Contact = () => (
   <NamedSection name="Контакты">
@@ -15,13 +17,13 @@ const Contact = () => (
           <Heading as="h3" size="lg">
             Email
           </Heading>
-          <Text>lodestar@please-replace-this-domain.com</Text>
+          <DefaultEmailLink />
         </Box>
         <Box>
           <Heading as="h3" size="lg">
             Телефон
           </Heading>
-          <Text>+79876543210</Text>
+          <DefaultPhoneLink />
         </Box>
         <Box>
           <Heading as="h3" size="lg">

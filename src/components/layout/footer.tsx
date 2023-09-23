@@ -1,5 +1,6 @@
 import { HStack, Link, Spacer, Text, VStack } from '@chakra-ui/react';
 import { Link as RouteLink } from 'react-router-dom';
+import { DefaultEmailLink } from '../contacts/email';
 
 const Footer = () => (
   <HStack spacing="10" padding="10" bgColor="logo.dark" alignItems="stretch">
@@ -10,7 +11,7 @@ const Footer = () => (
         ИНН 1234567890
       </Text>
       <Spacer />
-      <Text>lodestar@please-replace-this-domain.com</Text>
+      <DefaultEmailLink />
     </VStack>
     <VStack alignItems="start">
       <Link as={RouteLink} to="/">
