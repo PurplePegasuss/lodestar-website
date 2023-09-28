@@ -1,6 +1,7 @@
 import { Text, VStack } from '@chakra-ui/react';
 import NamedSection from '../../components/layout/named_section';
 import TeamMember from './components/team_member';
+import team_members from '../../data/team_members';
 
 const About = () => (
   <>
@@ -18,20 +19,10 @@ const About = () => (
     </NamedSection>
     <NamedSection name="Наша команда">
       <VStack spacing="5">
-        <TeamMember
-          name="Несуществующая Девушка"
-          position="Оператор колл-центра"
-          description={`Возможно она и существует, но она работает из дома, поэтому мы не можем быть уверены, 
-                      что она не написала нейросеть которая работает вместо нее.`}
-          photo_url="/media/logo.svg"
-        />
-        <TeamMember
-          name="Точно-не Билл-Гейтс"
-          position="Оператор-монтажер"
-          description={`В 20 лет спиратил Sony Vegas и открыл канал на YouTube, на деньги с рекламы купил себе 
-                      профессиональную камеру и теперь делает нам контент`}
-          photo_url="/media/logo.svg"
-        />
+        {team_members.map((member, i) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <TeamMember member={member} key={i} />
+        ))}
       </VStack>
     </NamedSection>
   </>

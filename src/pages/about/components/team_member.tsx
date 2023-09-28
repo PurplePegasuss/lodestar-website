@@ -1,21 +1,16 @@
 import { Card, CardBody, Grid, GridItem, Heading, Image, Text } from '@chakra-ui/react';
+import { type TeamMember as TeamMemberType } from '../../../data/team_members';
 
 const TeamMember = ({
-  name,
-  position,
-  description,
-  photo_url,
+  member: { name, position, description, photo },
 }: {
-  name: string;
-  position: string;
-  description: string;
-  photo_url: string;
+  member: TeamMemberType;
 }) => (
   <Card>
     <CardBody>
       <Grid gridTemplateColumns="10em auto" columnGap="10" gridAutoRows="min-content">
         <GridItem rowSpan={3} alignSelf="center">
-          <Image src={photo_url} />
+          <Image src={photo} />
         </GridItem>
         <GridItem>
           <Heading>{name}</Heading>
