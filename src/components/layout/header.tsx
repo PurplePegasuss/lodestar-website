@@ -1,4 +1,4 @@
-import { HStack, Image } from '@chakra-ui/react';
+import { HStack, Image, Stack } from '@chakra-ui/react';
 import NavLink from './navlink';
 
 const Header = () => (
@@ -6,9 +6,15 @@ const Header = () => (
     <NavLink to="/">
       <Image src="/media/logo.svg" height="20" />
     </NavLink>
-    <NavLink to="/projects">Проекты</NavLink>
-    <NavLink to="/about">О нас</NavLink>
-    <NavLink to="/contact">Контакты</NavLink>
+    <Stack
+      columnGap={{ base: '10', md: '20' }}
+      direction={{ base: 'column', sm: 'row' }}
+      whiteSpace="nowrap"
+    >
+      <NavLink to="/projects">Проекты</NavLink>
+      <NavLink to="/about">О нас</NavLink>
+      <NavLink to="/contact">Контакты</NavLink>
+    </Stack>
   </HStack>
 );
 
