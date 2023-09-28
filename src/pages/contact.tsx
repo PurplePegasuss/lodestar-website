@@ -32,7 +32,7 @@ const Contact = () => (
           <Text>....</Text>
         </Box>
       </VStack>
-      <Image src="/img/map.png" />
+      <Image src="/media/map.png" />
     </HStack>
   </NamedSection>
 );
