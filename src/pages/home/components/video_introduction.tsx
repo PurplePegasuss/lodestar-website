@@ -12,20 +12,28 @@ const VideoIntroduction = ({ children }: { children: ReactNode }) => {
   );
 
   return (
-    <Center marginTop="-32" position="relative" maxHeight="100vh" overflow="clip">
+    <Center marginTop="-32" position="relative" height="100vh" overflow="clip">
       <Box ref={bottomRef} position="absolute" top="100%" />
       <Center position="absolute" insetX="0" bottom="5" padding="5" zIndex="1">
         <IconButton
           _hover={{ color: 'logo.red' }}
           height="10"
-          overflow="hidden"
+          overflow="clip"
           onClick={scrollToContent}
           variant="link"
           icon={<Icon as={BsChevronCompactDown} boxSize="32" />}
           aria-label="Scroll down"
         />
       </Center>
-      <Box as="video" autoPlay muted loop disablePictureInPicture>
+      <Box
+        as="video"
+        autoPlay
+        muted
+        loop
+        disablePictureInPicture
+        minHeight="100%"
+        minWidth="max-content"
+      >
         {children}
       </Box>
     </Center>
