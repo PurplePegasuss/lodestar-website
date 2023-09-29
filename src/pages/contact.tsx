@@ -5,7 +5,7 @@ import { DefaultPhoneLink } from '../components/contacts/phone';
 
 const Contact = () => (
   <NamedSection name="Контакты">
-    <HStack justify="center" gap="10">
+    <HStack flexWrap="wrap" justify="center" gap="10">
       <VStack alignItems="stretch" gap="5">
         <Box>
           <Heading as="h3" size="lg">
