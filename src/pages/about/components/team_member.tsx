@@ -8,8 +8,12 @@ const TeamMember = ({
 }) => (
   <Card>
     <CardBody>
-      <Grid gridTemplateColumns="10em auto" columnGap="10" gridAutoRows="min-content">
-        <GridItem rowSpan={3} alignSelf="center">
+      <Grid
+        gridTemplateColumns={{ base: 'auto', sm: '10em auto' }}
+        columnGap="10"
+        gridAutoRows="min-content"
+      >
+        <GridItem rowSpan={3} alignSelf="center" marginY={{ base: '10', sm: 'unset' }}>
           <Image src={photo} />
         </GridItem>
         <GridItem>
