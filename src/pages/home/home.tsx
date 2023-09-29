@@ -14,7 +14,7 @@ const Home = () => (
       <source src="/media/render.webm" type="video/webm" />
       <source src="/media/render.mp4" type="video/mp4" />
     </VideoIntroduction>
-    <HStack spacing="0">
+    <HStack spacing="0" flexWrap="wrap" alignItems="stretch">
       {projects.map((project) => (
         <ProjectCard key={project.slug} project={project} />
       ))}

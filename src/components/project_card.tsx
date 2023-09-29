@@ -9,6 +9,7 @@ import {
   Text,
   VStack,
   useDisclosure,
+  useMediaQuery,
 } from '@chakra-ui/react';
 import { MdArrowForward } from 'react-icons/md';
 import RouteLink from './routelink';
@@ -25,8 +26,16 @@ const ProjectCard = ({
   project: Project;
 }) => {
   const { isOpen, onClose, onOpen } = useDisclosure();
+  const [canHover] = useMediaQuery('(hover: hover)');
+
   return (
-    <LinkBox position="relative" onMouseEnter={onOpen} onMouseLeave={onClose} width="100%">
+    <LinkBox
+      position="relative"
+      onMouseEnter={onOpen}
+      onMouseLeave={onClose}
+      flex="1"
+      minWidth="96"
+    >
       {photo_url ? (
         <Image src={photo_url} width="100%" />
       ) : (
@@ -35,13 +44,13 @@ const ProjectCard = ({
         </Center>
       )}
       <VStack
-        position="absolute"
+        position={canHover ? 'absolute' : 'initial'}
         inset="0"
         padding={10}
         alignItems="left"
         justifyContent="end"
         as={SlideFade}
-        in={isOpen}
+        in={!canHover || isOpen}
         background="linear-gradient(#0000 30%, #191718)"
       >
         <Heading>{name}</Heading>
