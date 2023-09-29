@@ -1,9 +1,15 @@
-import { HStack, Link, Spacer, Text, VStack } from '@chakra-ui/react';
+import { Link, Spacer, Stack, Text, VStack } from '@chakra-ui/react';
 import { Link as RouteLink } from 'react-router-dom';
 import { DefaultEmailLink } from '../contacts/email';
 
 const Footer = () => (
-  <HStack spacing="10" padding="10" bgColor="logo.dark" alignItems="stretch">
+  <Stack
+    direction={{ base: 'column', sm: 'row' }}
+    spacing="10"
+    padding="10"
+    bgColor="logo.dark"
+    alignItems="stretch"
+  >
     <VStack alignItems="start">
       <Text>
         ООО «Путеводная Звезда»
@@ -13,7 +19,14 @@ const Footer = () => (
       <Spacer />
       <DefaultEmailLink />
     </VStack>
-    <VStack alignItems="start">
+    <Stack
+      flexWrap="wrap"
+      whiteSpace="nowrap"
+      columnGap="6"
+      direction={{ base: 'row', sm: 'column' }}
+      justifyContent={{ base: 'start', sm: 'start' }}
+      alignItems="start"
+    >
       <Link as={RouteLink} to="/">
         Главная
       </Link>
@@ -26,8 +39,8 @@ const Footer = () => (
       <Link as={RouteLink} to="/contact">
         Контакты
       </Link>
-    </VStack>
-  </HStack>
+    </Stack>
+  </Stack>
 );
 
 export default Footer;
