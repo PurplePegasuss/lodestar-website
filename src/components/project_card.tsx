@@ -34,7 +34,7 @@ const ProjectCard = ({
       onMouseEnter={onOpen}
       onMouseLeave={onClose}
       flex="1"
-      minWidth="96"
+      minWidth={{ base: '100%', md: 'auto' }}
     >
       {photo_url ? (
         <Image src={photo_url} width="100%" />
