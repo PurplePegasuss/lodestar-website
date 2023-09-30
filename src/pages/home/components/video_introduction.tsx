@@ -12,7 +12,7 @@ const VideoIntroduction = ({ children }: { children: ReactNode }) => {
   );
 
   return (
-    <Center marginTop="-32" position="relative" height="100vh" overflow="clip">
+    <Center marginTop="-32" position="relative" height="100svh" overflow="clip">
       <Box ref={bottomRef} position="absolute" top="100%" />
       <Center position="absolute" insetX="0" bottom="5" padding="5" zIndex="1">
         <IconButton
@@ -31,8 +31,9 @@ const VideoIntroduction = ({ children }: { children: ReactNode }) => {
         muted
         loop
         disablePictureInPicture
-        minHeight="100%"
-        minWidth="max-content"
+        height="100%"
+        minWidth="100%"
+        objectFit="cover"
       >
         {children}
       </Box>
