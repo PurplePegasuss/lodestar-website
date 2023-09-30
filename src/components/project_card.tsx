@@ -26,13 +26,13 @@ const ProjectCard = ({
   project: Project;
 }) => {
   const { isOpen, onClose, onOpen } = useDisclosure();
-  const [canHover] = useMediaQuery('(hover: hover)');
+  const [canHover] = useMediaQuery('(hover: hover) and (pointer: fine)');
 
   return (
     <LinkBox
       position="relative"
-      onMouseEnter={onOpen}
-      onMouseLeave={onClose}
+      onPointerEnter={onOpen}
+      onPointerLeave={onClose}
       flex="1"
       minWidth={{ base: '100%', md: 'auto' }}
     >
