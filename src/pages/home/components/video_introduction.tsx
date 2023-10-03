@@ -1,6 +1,6 @@
-import { Box, Center, Icon, IconButton } from '@chakra-ui/react';
+import { Box, Center, IconButton } from '@chakra-ui/react';
 import { ReactNode, useCallback, useRef } from 'react';
-import { BsChevronCompactDown } from 'react-icons/bs';
+import WideArrow from '../../../components/wide_arrow';
 
 const VideoIntroduction = ({ children }: { children: ReactNode }) => {
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -21,7 +21,7 @@ const VideoIntroduction = ({ children }: { children: ReactNode }) => {
           overflow="clip"
           onClick={scrollToContent}
           variant="link"
-          icon={<Icon as={BsChevronCompactDown} boxSize="32" />}
+          icon={<WideArrow boxSize="32" />}
           aria-label="Scroll down"
         />
       </Center>
