@@ -8,7 +8,7 @@
     "dev": "vite",
     "lint": "tsc --noEmit && eslint . --report-unused-disable-directives --max-warnings 0 && prettier --check .",
     "format": "eslint --fix . && prettier -w .",
-    "build": "npx vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "author": "https://github.com/ntdesmond",
