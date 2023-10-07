@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import {
   Center,
   Heading,
@@ -9,11 +10,11 @@ import {
   Text,
   VStack,
   useDisclosure,
-  useMediaQuery,
 } from '@chakra-ui/react';
 import { MdArrowForward } from 'react-icons/md';
 import RouteLink from './routelink';
 import { type Project } from '../data/projects';
+import { LayoutContext } from './layout/layout';
 
 const ProjectCard = ({
   project: {
@@ -26,7 +27,7 @@ const ProjectCard = ({
   project: Project;
 }) => {
   const { isOpen, onClose, onOpen } = useDisclosure();
-  const [canHover] = useMediaQuery('(hover: hover) and (pointer: fine)');
+  const { supportsHover } = useContext(LayoutContext);
 
   return (
     <LinkBox
@@ -44,13 +45,13 @@ const ProjectCard = ({
         </Center>
       )}
       <VStack
-        position={canHover ? 'absolute' : 'initial'}
+        position={supportsHover ? 'absolute' : 'initial'}
         inset="0"
         padding={10}
         alignItems="left"
         justifyContent="end"
         as={SlideFade}
-        in={!canHover || isOpen}
+        in={!supportsHover || isOpen}
         background="linear-gradient(#0000 30%, #191718)"
       >
         <Heading>{name}</Heading>

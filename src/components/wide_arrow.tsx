@@ -1,14 +1,18 @@
-import { Icon, IconProps, forwardRef, useMediaQuery } from '@chakra-ui/react';
+import { useContext } from 'react';
+import { Icon, IconProps, forwardRef } from '@chakra-ui/react';
+import { LayoutContext } from './layout/layout';
 
 const WideArrow = forwardRef<IconProps, 'svg'>((props, ref) => {
-  const [canHover] = useMediaQuery('(hover: hover) and (pointer: fine)');
+  const { supportsHover } = useContext(LayoutContext);
 
   return (
     <Icon
       sx={
-        canHover ? { '.s': { transform: 'translateY(-50%)', transition: 'all 0.2s' } } : undefined
+        supportsHover
+          ? { '.s': { transform: 'translateY(-50%)', transition: 'all 0.2s' } }
+          : undefined
       }
-      _hover={canHover ? { '.s': { transform: 'initial' } } : undefined}
+      _hover={supportsHover ? { '.s': { transform: 'initial' } } : undefined}
       viewBox="0 0 416 100"
       ref={ref}
       // eslint-disable-next-line react/jsx-props-no-spreading
