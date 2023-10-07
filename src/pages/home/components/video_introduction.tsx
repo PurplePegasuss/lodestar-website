@@ -12,7 +12,7 @@ const VideoIntroduction = ({ children }: { children: ReactNode }) => {
   );
 
   return (
-    <Center marginTop="-32" position="relative" height="100svh" overflow="clip">
+    <Center marginTop="-32" position="relative" height="100svh" overflow="clip" background="black">
       <Box ref={bottomRef} position="absolute" top="100%" />
       <Center position="absolute" insetX="0" bottom="5" padding="5" zIndex="1">
         <IconButton
@@ -25,18 +25,17 @@ const VideoIntroduction = ({ children }: { children: ReactNode }) => {
           aria-label="Scroll down"
         />
       </Center>
-      <Box
-        as="video"
-        autoPlay
-        muted
-        loop
-        disablePictureInPicture
-        height="100%"
-        minWidth="100%"
-        objectFit="cover"
-      >
-        {children}
-      </Box>
+      <Center height="100%" position="relative">
+        <Box
+          position="absolute"
+          width="100%"
+          aspectRatio="2540/1640"
+          boxShadow="inset 0 0 1em 1em black"
+        />
+        <Box as="video" autoPlay muted loop disablePictureInPicture maxHeight="100%">
+          {children}
+        </Box>
+      </Center>
     </Center>
   );
 };
