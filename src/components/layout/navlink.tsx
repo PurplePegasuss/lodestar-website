@@ -1,7 +1,6 @@
-import { chakra } from '@chakra-ui/react';
-import RouteLink from '../routelink';
+import { Link, chakra } from '@chakra-ui/react';
 
-const NavLink = chakra(RouteLink, {
+const NavLink = chakra(Link, {
   baseStyle: {
     fontFamily: 'heading',
     textTransform: 'uppercase',

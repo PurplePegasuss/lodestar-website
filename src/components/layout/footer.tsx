@@ -1,5 +1,4 @@
 import { Link, Spacer, Stack, Text, VStack } from '@chakra-ui/react';
-import { Link as RouteLink } from 'react-router-dom';
 import { DefaultEmailLink } from '../contacts/email';
 
 const Footer = () => (
@@ -27,18 +26,10 @@ const Footer = () => (
       justifyContent={{ base: 'start', sm: 'start' }}
       alignItems="start"
     >
-      <Link as={RouteLink} to="/">
-        Главная
-      </Link>
-      <Link as={RouteLink} to="/projects">
-        Проекты
-      </Link>
-      <Link as={RouteLink} to="/about">
-        О компании
-      </Link>
-      <Link as={RouteLink} to="/contact">
-        Контакты
-      </Link>
+      <Link href="/">Главная</Link>
+      <Link href="/projects">Проекты</Link>
+      <Link href="/about">О компании</Link>
+      <Link href="/contact">Контакты</Link>
     </Stack>
   </Stack>
 );

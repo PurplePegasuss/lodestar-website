@@ -51,7 +51,7 @@ const fonts = {
 };
 
 const styles = {
-  global: (_props: StyleFunctionProps) => ({ body: { bg: 'gray.bg' } }),
+  global: (_props: StyleFunctionProps) => ({ body: { bg: 'gray.bg', color: 'gray.100' } }),
 };
 
 const theme = extendTheme({

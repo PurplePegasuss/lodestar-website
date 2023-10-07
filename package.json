@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "./src/index.ts",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "lint": "tsc --noEmit && eslint . --report-unused-disable-directives --max-warnings 0 && prettier --check .",
@@ -47,6 +48,7 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^13.0.2",
     "react-icons": "^4.11.0",
-    "react-router-dom": "^6.3.0"
+    "vike": "^0.4.142",
+    "vike-react": "^0.3.0"
   }
 }

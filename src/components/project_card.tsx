@@ -11,8 +11,7 @@ import {
   VStack,
   useDisclosure,
 } from '@chakra-ui/react';
-import { MdArrowForward } from 'react-icons/md';
-import RouteLink from './routelink';
+import { MdArrowForward } from 'react-icons/md/index';
 import { type Project } from '../data/projects';
 import { LayoutContext } from './layout/layout';
 
@@ -56,13 +55,7 @@ const ProjectCard = ({
       >
         <Heading>{name}</Heading>
         <Text>{description}</Text>
-        <LinkOverlay
-          as={RouteLink}
-          to={`/projects/${slug}`}
-          alignSelf="end"
-          fontSize="lg"
-          color="red.300"
-        >
+        <LinkOverlay href={`/projects/${slug}`} alignSelf="end" fontSize="lg" color="red.300">
           <Text as="span">Подробнее</Text>
           <Icon as={MdArrowForward} display="inline-block" verticalAlign="middle" />
         </LinkOverlay>

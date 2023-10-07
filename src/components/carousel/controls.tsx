@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { HStack, IconButton } from '@chakra-ui/react';
-import { MdArrowBack, MdArrowForward } from 'react-icons/md';
+// React icons won't import on build without "index"
+import { MdArrowBack, MdArrowForward } from 'react-icons/md/index';
 
 const CarouselControls = memo(
   ({ onBack, onForward }: { onBack: () => void; onForward: () => void }) => (

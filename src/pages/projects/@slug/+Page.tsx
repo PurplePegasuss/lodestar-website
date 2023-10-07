@@ -1,19 +1,24 @@
 import { useMemo } from 'react';
-import { useParams } from 'react-router-dom';
+// wtf is this error
+// eslint-disable-next-line import/no-unresolved
+import { usePageContext } from 'vike-react/usePageContext';
+import { render } from 'vike/abort';
+import type { PageContext } from 'vike/types';
 import { ListItem, Text, UnorderedList } from '@chakra-ui/react';
-import NamedSection from '../../components/layout/named_section';
-import projects from '../../data/projects';
-import NotFound from '../not_found';
-import WhyUsSection from './components/why_us_section';
-import OrderSection from './components/order_section';
-import Carousel from '../../components/carousel/carousel';
+import NamedSection from '../../../components/layout/named_section';
+import projects from '../../../data/projects';
+import WhyUsSection from '../components/why_us_section';
+import OrderSection from '../components/order_section';
+import Carousel from '../../../components/carousel/carousel';
 
 const Project = () => {
-  const { slug } = useParams();
+  const pageContext = usePageContext() as PageContext;
+
+  const slug = useMemo(() => pageContext.routeParams?.slug, [pageContext]);
 
   const project = useMemo(() => projects.find((p) => p.slug === slug), [slug]);
   if (project === undefined) {
-    return <NotFound />;
+    throw render(404);
   }
   return (
     <>

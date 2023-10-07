@@ -1,8 +1,7 @@
-import { Button, Center, HStack } from '@chakra-ui/react';
-import { MdArrowForward } from 'react-icons/md';
+import { Button, Center, HStack, Link } from '@chakra-ui/react';
+import { MdArrowForward } from 'react-icons/md/index';
 import ProjectCard from '../../components/project_card';
 import NamedSection from '../../components/layout/named_section';
-import RouteLink from '../../components/routelink';
 import projects from '../../data/projects';
 import VideoIntroduction from './components/video_introduction';
 import Partners from './components/partners';
@@ -23,8 +22,8 @@ const Home = () => (
       <Team />
       <Center margin="10">
         <Button
-          as={RouteLink}
-          to="/about"
+          as={Link}
+          href="/about"
           alignSelf="end"
           rightIcon={<MdArrowForward />}
           colorScheme="red"

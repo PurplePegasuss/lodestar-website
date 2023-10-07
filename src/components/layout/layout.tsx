@@ -1,5 +1,4 @@
-import { createContext, useMemo } from 'react';
-import { Outlet } from 'react-router-dom';
+import { ReactNode, createContext, useMemo } from 'react';
 import { Spacer, VStack, useMediaQuery } from '@chakra-ui/react';
 import Header from './header';
 import Footer from './footer';
@@ -8,7 +7,7 @@ export const LayoutContext = createContext({
   supportsHover: false,
 });
 
-const Layout = () => {
+const Layout = ({ children }: { children: ReactNode }) => {
   const [canHover] = useMediaQuery('(hover: hover) and (pointer: fine)');
 
   const contextValue = useMemo(() => ({ supportsHover: canHover }), [canHover]);
@@ -17,7 +16,7 @@ const Layout = () => {
     <LayoutContext.Provider value={contextValue}>
       <VStack spacing="0" minHeight="100vh" alignItems="stretch">
         <Header />
-        <Outlet />
+        {children}
         <Spacer />
         <Footer />
       </VStack>

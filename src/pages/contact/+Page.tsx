@@ -1,7 +1,7 @@
 import { Box, HStack, Heading, Image, Text, VStack } from '@chakra-ui/react';
-import NamedSection from '../components/layout/named_section';
-import { DefaultEmailLink } from '../components/contacts/email';
-import { DefaultPhoneLink } from '../components/contacts/phone';
+import NamedSection from '../../components/layout/named_section';
+import { DefaultEmailLink } from '../../components/contacts/email';
+import { DefaultPhoneLink } from '../../components/contacts/phone';
 
 const Contact = () => (
   <NamedSection name="Контакты">
