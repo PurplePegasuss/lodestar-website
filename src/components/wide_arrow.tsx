@@ -1,17 +1,22 @@
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
+import { useInView } from 'framer-motion';
 import { Icon, IconProps, forwardRef } from '@chakra-ui/react';
 import { LayoutContext } from './layout/layout';
 
-const WideArrow = forwardRef<IconProps, 'svg'>((props, ref) => {
+// Chakra's forwardRef to pass IconProps
+const WideArrow = forwardRef<IconProps, 'svg'>((props) => {
   const { supportsHover } = useContext(LayoutContext);
+  const ref = useRef<HTMLElement>(null);
+  const isInView = useInView(ref, { once: true });
 
   return (
     <Icon
-      sx={
-        supportsHover
-          ? { '.s': { transform: 'translateY(-50%)', transition: 'all 0.2s' } }
-          : undefined
-      }
+      sx={{
+        '.s': {
+          transform: supportsHover || !isInView ? 'translateY(-50%)' : 'initial',
+          transition: 'all 0.2s',
+        },
+      }}
       _hover={supportsHover ? { '.s': { transform: 'initial' } } : undefined}
       viewBox="0 0 416 100"
       ref={ref}

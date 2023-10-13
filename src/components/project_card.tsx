@@ -1,5 +1,7 @@
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
+import { useInView } from 'framer-motion';
 import {
+  Box,
   Center,
   Heading,
   Icon,
@@ -26,6 +28,8 @@ const ProjectCard = ({
   project: Project;
 }) => {
   const { isOpen, onClose, onOpen } = useDisclosure();
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { amount: 0.5, once: true });
   const { supportsHover } = useContext(LayoutContext);
 
   return (
@@ -36,13 +40,23 @@ const ProjectCard = ({
       flex="1"
       minWidth={{ base: '100%', md: 'auto' }}
     >
-      {photo_url ? (
-        <Image src={photo_url} width="100%" />
-      ) : (
-        <Center minHeight="96">
-          <Text>Нет фотографий</Text>
+      <Box position="relative" ref={ref}>
+        {photo_url ? (
+          <Image src={photo_url} width="100%" />
+        ) : (
+          <Center minHeight="36" height="100%">
+            <Text>Нет фотографий</Text>
+          </Center>
+        )}
+        <Center
+          position="absolute"
+          inset="0"
+          opacity={(supportsHover && isOpen) || isInView ? 1 : 0}
+          transition="opacity 1s"
+        >
+          <Box width="80%" boxShadow="0 0 1em 1em rgba(255, 200, 0, 0.6)" />
         </Center>
-      )}
+      </Box>
       <VStack
         position={supportsHover ? 'absolute' : 'initial'}
         inset="0"
