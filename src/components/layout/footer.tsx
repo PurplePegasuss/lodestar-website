@@ -1,4 +1,4 @@
-import { Link, Spacer, Stack, Text, VStack } from '@chakra-ui/react';
+import { Link, Spacer, Stack, Text, VStack, Image } from '@chakra-ui/react';
 import { DefaultEmailLink } from '../contacts/email';
 
 const Footer = () => (
