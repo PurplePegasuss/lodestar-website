@@ -18,6 +18,15 @@ const Footer = () => (
       <Spacer />
       <DefaultEmailLink />
     </VStack>
+
+    <VStack alignItems="center" textAlign="center">
+      <Image src="/media/fsi.png" height="20" />
+      <Text>
+        Проект поддержан Фондом содействия инновациям в рамках программы "Студенческий стартап"
+        федерального проекта "Платформа университетского технологического предпринимательства"
+      </Text>
+    </VStack>
+
     <Stack
       flexWrap="wrap"
       whiteSpace="nowrap"
