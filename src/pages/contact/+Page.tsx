@@ -23,13 +23,13 @@ const Contact = () => (
           <Heading as="h3" size="lg">
             Телефон
           </Heading>
-          <DefaultPhoneLink />
+          <Text> По запросу </Text>
         </Box>
         <Box>
           <Heading as="h3" size="lg">
             Социальные сети
           </Heading>
-          <Text>....</Text>
+          <Text>lodestar-website.vercel.app</Text>
         </Box>
       </VStack>
       <Image src="/media/map.png" />
