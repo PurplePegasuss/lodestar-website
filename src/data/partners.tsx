@@ -6,24 +6,12 @@ export interface Partner {
 const partners: Partner[] = [
   {
     name: 'Университет Иннополис',
-    photo: '/media/logo.svg',
+    photo: '/media/innou-logo.svg',
   },
   {
     name: 'ОЭЗ Иннополис',
-    photo: '/media/logo.svg',
-  },
-  {
-    name: 'город Иннополис',
-    photo: '/media/logo.svg',
-  },
-  {
-    name: 'Опять Иннополис',
-    photo: '/media/logo.svg',
-  },
-  {
-    name: 'Еще раз Иннополис',
-    photo: '/media/logo.svg',
-  },
+    photo: '/media/oez.svg',
+  }
 ];
 
 export default partners;
