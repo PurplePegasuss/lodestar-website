@@ -13,7 +13,7 @@ const Footer = () => (
       <Text>
         ООО «Путеводная Звезда»
         <br />
-        ИНН 1234567890
+        ИНН 1683016005
       </Text>
       <Spacer />
       <DefaultEmailLink />
