@@ -7,7 +7,7 @@ const EmailLink = ({ address }: { address: string }) => (
 );
 
 export const DefaultEmailLink = () => (
-  <EmailLink address="lodestar@please-replace-this-address.com" />
+  <EmailLink address="lode5tar@yandex.ru" />
 );
 
 export default EmailLink;
