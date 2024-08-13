@@ -5,7 +5,7 @@ import team_members from '../../data/team_members';
 
 const About = () => (
   <>
-    <Image src="/media/lodestar_team.jpg"/>
+    <Image src="/media/lodestar_team.jpg" width="50%" mx="auto" />
     <NamedSection name="О Lodestar">
     <Text> Наша команда объединяет высококвалифицированных специалистов, каждый из которых играет ключевую роль в развитии стартапа.
     Руководитель команды отвечает за производственно-хозяйственную и финансово-экономическую деятельность компании, а также за внедрение 
