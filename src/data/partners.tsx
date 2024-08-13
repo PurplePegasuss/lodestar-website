@@ -11,7 +11,15 @@ const partners: Partner[] = [
   {
     name: 'ОЭЗ Иннополис',
     photo: '/media/oez.svg',
-  }
+  },
+  {
+    name: 'Платформа университетского технологического предпринимательства',
+    photo: '/media/dus.png',
+  },
+  {
+    name: 'Startup Studio',
+    photo: '/media/startup_studio.jpg',
+  }, 
 ];
 
 export default partners;
